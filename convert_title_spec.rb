@@ -19,11 +19,23 @@ describe 'convert' do
     expect(convert 79).to eq 'CA'
     expect(convert 676).to eq 'YZ'
     expect(convert 677).to eq 'ZA'
+    # 26 * 27 = 702
     expect(convert 702).to eq 'ZZ'
   end
   
-  xit 'works for 3-letter columns' do
+  it 'works for 3-letter columns' do
     expect(convert 703).to eq 'AAA'
+    expect(convert 704).to eq 'AAB'
+    expect(convert 729).to eq 'ABA'
+    # 26 * 26 * 27 = 18252
+    expect(convert 18252).to eq 'ZYZ'
+    expect(convert 18253).to eq 'ZZA'
+    # 26 + 26**2 + 26**3 = 18278
+    expect(convert 18278).to eq 'ZZZ'
+  end
+
+  it 'works for 4-letter columns' do
+    expect(convert 18279).to eq 'AAAA'
   end
 
 end
