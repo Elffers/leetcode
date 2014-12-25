@@ -22,3 +22,16 @@ def compare_version(v1, v2)
     return 0 if i == zipped.length - 1
   end
 end
+
+def zip(ary1, ary2)
+  max = nil
+  min = nil
+  if ary1.length < ary2.length
+    min = ary1
+    max = ary2
+  else
+    max = ary1
+    min = ary2
+  end
+  max.zip min
+end

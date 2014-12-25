@@ -31,3 +31,24 @@ describe 'compare' do
     expect(compare_version('1.1', '01.2')).to eq -1
   end
 end
+
+describe 'zip' do
+  it 'works for ary1 > ary2' do
+    ary1 = [1, 2, 3, 4]
+    ary2 = [1, 2]
+    expect(zip ary1, ary2).to eq [[1, 1], [2, 2], [3, nil], [4, nil]]
+  end
+
+  it 'works for ary1 < ary2' do
+    ary1 = [1, 2]
+    ary2 = [1, 2, 3, 4]
+    expect(zip ary1, ary2).to eq [[1, 1], [2, 2], [3, nil], [4, nil]]
+  end
+
+  it 'works for ary1 == ary2' do
+    ary1 = [1, 2]
+    ary2 = [1, 2]
+    expect(zip ary1, ary2).to eq [[1, 1], [2, 2]] 
+  end
+end
+
