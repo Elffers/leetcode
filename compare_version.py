@@ -3,25 +3,27 @@ class Solution:
     # @param version2, a string
     # @return an integer
     def compareVersion(self, version1, version2):
-        v1 = version1.split('.') 
-        v2 = version2.split('.') 
+        v1 = version1.split('.')
+        v2 = version2.split('.')
         l1 = len(v1)
         l2 = len(v2)
+        # Equalize lengths of v1 and v2 by padding the shorter list with 0's
         if l1 < l2:
-            while len(v1)< l2: 
+            while len(v1)< l2:
                 v1.append(0)
         if l1 > l2:
-            while l1> len(v2): 
+            while l1> len(v2):
                 v2.append(0)
+
         zipped = zip(v1,v2)
-        for i, pair in enumerate(zipped):
-            a = int(pair[0])
-            b = int(pair[1])
-            if a > b:
+        for index, pair in enumerate(zipped):
+            v1_num = int(pair[0])
+            v2_num = int(pair[1])
+            if v1_num > v2_num:
                 return  1
-            elif b > a:
+            elif v1_num < v2_num:
                 return -1
-            elif i == len(zipped) - 1:
+            elif index == len(zipped) - 1:
                 return 0
 
 x = Solution()
